@@ -19,8 +19,8 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 @SpringBootApplication
-class ProjectNameApplication {
+class EmbabelRagbotNeo4jApplication {
     public static void main(String[] args) {
-        SpringApplication.run(ProjectNameApplication.class, args);
+        SpringApplication.run(EmbabelRagbotNeo4jApplication.class, args);
     }
 }

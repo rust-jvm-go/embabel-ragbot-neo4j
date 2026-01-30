@@ -1,0 +1,10 @@
+spring:
+  ai:
+    ollama:
+      # Not needed when using the default port
+      base-url: http://localhost:11434
+
+embabel:
+  models:
+    defaultLlm: kimi-k2.5:cloud
+    default-embedding-model: qwen3-embedding:0.6b

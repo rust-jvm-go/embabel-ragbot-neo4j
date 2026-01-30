@@ -47,7 +47,6 @@ abstract class Personas {
     );
 }
 
-
 @Agent(description = "Generate a story based on user input and review it")
 public class WriteAndReviewAgent {
 
