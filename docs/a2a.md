@@ -26,4 +26,4 @@ cannot access it when running in a Docker container.
 Your agent will have automatically been exported to A2A. Add it in the UI, and start a chat.
 You should see something like this:
 
-<img src="images/a2a_ui.jpg" alt="A2A UI" width="600">
+<img src="../images/a2a_ui.jpg" alt="A2A UI" width="600">
