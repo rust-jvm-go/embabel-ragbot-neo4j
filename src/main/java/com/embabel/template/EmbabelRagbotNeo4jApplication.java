@@ -40,6 +40,16 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
  */
 @SpringBootApplication
 class EmbabelRagbotNeo4jApplication {
+
+    /** Default constructor. */
+    EmbabelRagbotNeo4jApplication() {
+    }
+
+    /**
+     * Application entry point.
+     *
+     * @param args command-line arguments forwarded to Spring Boot
+     */
     public static void main(String[] args) {
         SpringApplication.run(EmbabelRagbotNeo4jApplication.class, args);
     }

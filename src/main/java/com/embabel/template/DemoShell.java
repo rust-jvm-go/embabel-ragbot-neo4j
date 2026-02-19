@@ -29,6 +29,8 @@ import org.springframework.shell.standard.ShellMethod;
  * become interactive CLI commands. Embabel also registers its own dynamic commands ({@code x},
  * {@code execute}, {@code chat}) for agent invocation.
  *
+ * @param injectedDemo Spring-injected component demonstrating ad-hoc LLM calls
+ * @param agentPlatform the Embabel agent platform managing all registered agents
  * @see com.embabel.agent.api.invocation.AgentInvocation
  * @see com.embabel.agent.core.AgentPlatform
  */
@@ -45,6 +47,8 @@ record DemoShell(InjectedDemo injectedDemo, AgentPlatform agentPlatform) {
      * <p>
      * The result implements {@link com.embabel.agent.domain.library.HasContent}, so
      * {@code getContent()} returns a formatted string suitable for display.
+     *
+     * @return the formatted story and review content
      */
     @ShellMethod("Demo")
     String demo() {
@@ -62,6 +66,8 @@ record DemoShell(InjectedDemo injectedDemo, AgentPlatform agentPlatform) {
      * <p>
      * This shows that LLM operations are not limited to {@code @Agent} classes —
      * any Spring bean can use the {@code Ai} interface for ad-hoc LLM calls.
+     *
+     * @return string representation of the invented animal
      */
     @ShellMethod("Invent an animal")
     String animal() {

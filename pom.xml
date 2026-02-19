@@ -69,6 +69,8 @@
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
                 <configuration>
+                    <!-- Include package-private classes (not just public) -->
+                    <show>package</show>
                     <!-- Link to external Javadocs for cross-referencing -->
                     <links>
                         <link>https://docs.spring.io/spring-boot/api/java/</link>

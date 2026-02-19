@@ -56,15 +56,23 @@ import java.time.format.DateTimeFormatter;
  */
 abstract class Personas {
 
-    // RoleGoalBackstory: A CrewAI-compatible persona style included in Embabel for users
-    // migrating from CrewAI. It contributes "Role: / Goal: / Backstory:" to the system prompt.
+    /** Utility class — not instantiable. */
+    Personas() {
+    }
+
+    /**
+     * Writer persona using CrewAI-compatible {@link RoleGoalBackstory} style.
+     * Contributes "Role: / Goal: / Backstory:" to the system prompt.
+     */
     static final RoleGoalBackstory WRITER = RoleGoalBackstory
             .withRole("Creative Storyteller")
             .andGoal("Write engaging and imaginative stories")
             .andBackstory("Has a PhD in French literature; used to work in a circus");
 
-    // Persona: Embabel's native persona style contributing "You are [name]. Your persona: ...
-    // Your objective is ... Your voice: ..." to the system prompt.
+    /**
+     * Reviewer persona using Embabel's native {@link Persona} style.
+     * Contributes "You are [name]. Your persona: ... Your objective is ... Your voice: ..." to the system prompt.
+     */
     static final Persona REVIEWER = Persona.create(
             "Media Book Review",
             "New York Times Book Reviewer",
@@ -205,6 +213,11 @@ public class WriteAndReviewAgent {
      * configured with automatic model selection. The fluent API chains
      * {@code .withPromptContributor()} to inject the reviewer persona into the system prompt,
      * then {@code .generateText()} to produce a plain text review.
+     *
+     * @param userInput the original user input that inspired the story
+     * @param story the story produced by {@code craftStory}
+     * @param ai framework-injected AI context for LLM operations
+     * @return the reviewed story combining the original story, review text, and reviewer persona
      */
     @AchievesGoal(
             description = "The story has been crafted and reviewed by a book reviewer",
@@ -265,6 +278,10 @@ public class WriteAndReviewAgent {
      * <b>createObject():</b> Unlike {@code generateText()}, this method deserializes the LLM
      * response into a strongly-typed {@code Story} record. The framework handles JSON schema
      * generation, prompt construction, and response parsing automatically.
+     *
+     * @param userInput the user's input to use as story inspiration
+     * @param ai framework-injected AI context for LLM operations
+     * @return a generated story deserialized from the LLM response
      */
     @Action(description = "Craft a creative story based on user input")
     Story craftStory(UserInput userInput, Ai ai) {
