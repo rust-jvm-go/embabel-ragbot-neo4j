@@ -1,10 +1,26 @@
+# ============================================================================
+# Primary Application Configuration (application.yml)
+# ============================================================================
+# Embabel builds on Spring AI for LLM provider integration. Spring AI
+# auto-configures model clients based on classpath dependencies and these
+# settings. Embabel then wraps Spring AI with its own model management layer
+# (LlmOptions, ModelSelectionCriteria, etc.) for multi-LLM orchestration.
+# ============================================================================
+
 spring:
   ai:
     ollama:
-      # Not needed when using the default port
+      # Ollama base URL. Not needed when using the default port (11434).
+      # The embabel-agent-starter-ollama dependency auto-discovers all locally
+      # available Ollama models and makes them available via ai.withLlm("model-name").
       base-url: http://localhost:11434
 
 embabel:
   models:
+    # The default LLM used when ai.withDefaultLlm() is called in action code.
+    # Also the fallback for ai.withAutoLlm() when the platform cannot determine
+    # a better model. Can be any model name available through configured providers.
     defaultLlm: kimi-k2.5:cloud
+    # The default embedding model used when ai.withDefaultEmbeddingService() is called.
+    # Used for RAG (Retrieval-Augmented Generation) and semantic search operations.
     default-embedding-model: qwen3-embedding:0.6b
