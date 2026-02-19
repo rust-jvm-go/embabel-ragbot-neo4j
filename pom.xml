@@ -65,6 +65,23 @@
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
             </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <configuration>
+                    <!-- Link to external Javadocs for cross-referencing -->
+                    <links>
+                        <link>https://docs.spring.io/spring-boot/api/java/</link>
+                        <link>https://docs.spring.io/spring-framework/docs/current/javadoc-api/</link>
+                    </links>
+                    <!-- Don't fail on warnings from inherited/external types -->
+                    <failOnWarnings>false</failOnWarnings>
+                    <failOnError>false</failOnError>
+                    <!-- Include author and version tags -->
+                    <author>true</author>
+                    <version>true</version>
+                </configuration>
+            </plugin>
         </plugins>
     </build>
 

@@ -36,6 +36,9 @@ public record InjectedDemo(Ai ai) {
      * In this example, the {@code @Pattern} annotation on {@code species} requires it to
      * contain "ox". If the LLM generates "Dragon" as the species, validation fails and
      * the framework automatically retries until a valid result is produced.
+     *
+     * @param name the animal's name
+     * @param species the animal's species (must contain "ox" per the validation constraint)
      */
     public record Animal(
             String name,
@@ -48,7 +51,7 @@ public record InjectedDemo(Ai ai) {
      * <p>
      * <b>Key Embabel Concept — Creating API:</b> The {@code creating()} method on
      * {@link com.embabel.agent.api.common.PromptRunner} returns a
-     * {@link com.embabel.agent.api.common.PromptRunner.Creating} builder that provides:
+     * {@code PromptRunner.Creating} builder that provides:
      * <ul>
      *   <li>{@code withExample(description, value)} — adds typed examples to the prompt,
      *       serialized as JSON. Good and bad examples help the LLM understand the expected format.</li>
