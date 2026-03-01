@@ -1,6 +1,8 @@
 
 embabel-agent-api/src/main/resources/mcp/**
 
+docs/embabel-agent-guide.html
+
 /target/**
 */target/**
 */*/target/**
