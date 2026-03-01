@@ -64,16 +64,17 @@ abstract class Personas {
      * Writer persona using CrewAI-compatible {@link RoleGoalBackstory} style.
      * Contributes "Role: / Goal: / Backstory:" to the system prompt.
      */
-    static final RoleGoalBackstory WRITER = RoleGoalBackstory
-            .withRole("Creative Storyteller")
-            .andGoal("Write engaging and imaginative stories")
-            .andBackstory("Has a PhD in French literature; used to work in a circus");
+    static final RoleGoalBackstory WRITER = new RoleGoalBackstory(
+            "Creative Storyteller",
+            "Write engaging and imaginative stories",
+            "Has a PhD in French literature; used to work in a circus"
+    );
 
     /**
      * Reviewer persona using Embabel's native {@link Persona} style.
      * Contributes "You are [name]. Your persona: ... Your objective is ... Your voice: ..." to the system prompt.
      */
-    static final Persona REVIEWER = Persona.create(
+    static final Persona REVIEWER = new Persona(
             "Media Book Review",
             "New York Times Book Reviewer",
             "Professional and insightful",

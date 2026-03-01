@@ -10,7 +10,7 @@
 
 Starting point for your own agent development using the [Embabel framework](https://github.com/embabel/embabel-agent).
 
-Uses Spring Boot 3.5.9 and Embabel 0.3.1.
+Uses Spring Boot 3.5.9 and Embabel 0.3.4.
 
 Add your magic here!
 
@@ -26,9 +26,11 @@ Illustrates:
 
 # Running
 
-Run the shell script to start Embabel under Spring Shell:
+Firstly, set the agent API keys. Then run the shell script to start Embabel under Spring Shell:
 
 ```bash
+export OPENAI_API_KEY=your_openai_api_key
+export ANTHROPIC_API_KEY=your_anthropic_api_key
 ./scripts/shell.sh
 ```
 
